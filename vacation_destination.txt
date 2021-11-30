@@ -1,0 +1,26 @@
+output: WELCOME TO VACATION DESTINATION GENERATOR
+
+output: PLEASE TYPE VACATION DESTINATION, PRESS ENTER, 
+TYPE NEXT DESTIONATION, TYPE 'DONE' AFTER LAST DESTINATION.
+
+input: vacay_destinations = [] #vacations get put into list until 'done' is entered
+
+process: iterate randomly over the list and pull out an item 
+store as final_destination = vacay_destinations[random index]
+
+output: PACK YOUR BAGS YOU'RE GOING TO [final_destination]
+
+
+
+import random 
+
+def vaca_dest_gene()
+
+assign an empty list to vacay_destinations
+
+create a loop that accepts vacation destinations and ends when 'done' is 
+entered. upper 'done' = 'done' 
+
+assign random.choice(vacay_destinations) to final_destination
+
+return final_destionation
