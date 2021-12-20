@@ -4,8 +4,9 @@ Sharon Steinke
 December 19, 2021
 
 A simple random generator specifically for choosing vacation destinations.
-To use: type name of destination, press enter, type name of destination, etc...
-and type 'done' to recieve randomly selected destination.
+To use: enter destinations, one per line, in plain txt document. Make sure there are no 
+new lines at the end of the list. call vacay_generator with location of your file as
+a parameter. 
 '''
 import random
 
@@ -20,17 +21,24 @@ def get_vacay_lyst(vacay_file):
 
 
 def vacay_generator(vacay_file):
-    '''takes destination inputs and stores into list. 
-    Then picks a random destination and prints'''
+    '''picks a random destination from list'''
     vacays = get_vacay_lyst(vacay_file)
     print('Welcome to Vacation Destination Generator')
     start_stop = ''
     while start_stop.upper() != 'N':
-        start_stop = input('Generate new destination? (Y/N): ')
+        start_stop = input('Generate  a new destination? (Y/N): ')
         if start_stop.upper() == 'Y':
             new_destination = random.choice(vacays)
-            final_vacation_destination = print(f'Pack your bags, you are going to: {new_destination}')
-            return final_vacation_destination
+            print(f'Pack your bags, you are going to: {new_destination}')
+            start_over = input('Would you like to play again? (Y/N): ')
+            if start_over.upper() == 'Y':
+                return vacay_generator(vacay_file)   
+            if start_over.upper() == 'N':
+                good_bye  = print(f'Goodbye.')
+                return good_bye
+        if start_stop.upper() == 'N':
+            good_bye  = print(f'Goodbye.')
+            return good_bye
     
 def main():
     vacay_generator('vacay_dest.txt')
