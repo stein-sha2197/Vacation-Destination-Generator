@@ -1,19 +1,13 @@
 '''
 Vacation Destination Random Generator
 Sharon Steinke
-November 28, 2021
+December 19, 2021
 
-A simple random generator specifically for choosing vacation destinations. 
+A simple random generator specifically for choosing vacation destinations.
 To use: type name of destination, press enter, type name of destination, etc...
-and type 'done' to recieve randomly selected destination. 
-
-If I were to change anything or update this code to be more user friendly,
-I would have it be able to import a list of destinations and keep track of the 
-places it had picked and remove it from the list. This way we could keep the
-same list without typing it in everytime. As it is, it does what I need it to do.
+and type 'done' to recieve randomly selected destination.
 '''
 import random
-import csv
 
 def get_vacay_lyst(vacay_file):
     '''reads a file and stores destinations in a list'''
@@ -25,22 +19,21 @@ def get_vacay_lyst(vacay_file):
         return vacay_lyst
 
 
-def vacay_generator():
+def vacay_generator(vacay_file):
     '''takes destination inputs and stores into list. 
     Then picks a random destination and prints'''
-    vacay_dest = []
-    new_destination = ''
+    vacays = get_vacay_lyst(vacay_file)
     print('Welcome to Vacation Destination Generator')
-    while new_destination != 'done':
-        new_destination = input("Please enter a destination or type 'done': ")
-        vacay_dest.append(new_destination)
-    vacay_dest.pop()
-    final_destination = random.choice(vacay_dest)
-    final_vacation_destination = print(f'Pack your bags, you are going to: {final_destination}')
-    return final_vacation_destination
+    start_stop = ''
+    while start_stop.upper() != 'N':
+        start_stop = input('Generate new destination? (Y/N): ')
+        if start_stop.upper() == 'Y':
+            new_destination = random.choice(vacays)
+            final_vacation_destination = print(f'Pack your bags, you are going to: {new_destination}')
+            return final_vacation_destination
     
 def main():
-    print(get_vacay_lyst("vacay_dest.txt"))
+    vacay_generator('vacay_dest.txt')
 
 
 if __name__ == "__main__":
