@@ -4,8 +4,7 @@ Sharon Steinke
 December 19, 2021
 
 A simple random generator specifically for choosing vacation destinations.
-To use: enter destinations, one per line, in plain txt document. Make sure there are no 
-new lines at the end of the list. call vacay_generator with location of your file as
+To use: enter destinations, one per line, in plain txt document. Call vacay_generator with location of your file as
 a parameter. 
 """
 import random
